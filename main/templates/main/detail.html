@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>投票アプリ</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+    {% for choice in question.choices.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+    </ul>
+    <form action="{% url "vote" question.id %}" mathod="GET">
+        <input type="text" name="word">
+        <input type="submit">
+    </form>
+    <a href="{% url 'index' %}">トップへ戻る</a>
+</body>
+</html>
